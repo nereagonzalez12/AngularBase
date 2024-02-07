@@ -5,10 +5,10 @@
     <dt>Edad:</dt>
     <dd>{{edad}}</dd>
     <dt>Metodo:</dt>
-    <dd>{{metodo}}</dd>
+    <dd>{{dimeDescripcion()}}</dd>
     <dt>Mayuscula:</dt>
     <dd>{{nombreEnMayuscula}}</dd>
 </dl>
-<input type="button" class="btn btn-primary" (click)="incrementar()" value="+1"/>
-<input type="button" class="btn btn-primary" (click)="reset()" value="Reset"/>
-<input type="button" class="btn btn-primary" (click)="decrementar()" value="-1"/>
+<input *ngIf="nombre==='ironman'" type="button" class="btn btn-primary mx-2" (click)="cambiarNombre()" value="Cambiar nombre"/>
+<input *ngIf="edad===45" type="button" class="btn btn-primary mx-2" (click)="cambiarEdad()" value="Cambiar edad"/>
+<input type="button" class="btn btn-primary mx-2" (click)="reset()" value="Reset"/>
