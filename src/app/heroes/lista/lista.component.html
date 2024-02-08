@@ -1,9 +1,19 @@
-<h1>Lista de heroes del pueblo</h1>
-<h3 *ngIf="heroeBorrado === null">No ha borrado nada</h3>
-<h3 *ngIf="heroeBorrado !== null">Se ha borrado {{heroeBorrado}}</h3>
-<input *ngIf="heroeNombres.length > 0" type="button" class="btn btn-primary mx-2" (click)="borrarUltimoHeroe()" value="Borrar Ultimo heroe"/>
+<h1>Lista de heroes</h1>
+<ng-template #ningunHeroeBorrado>
+  <p>No ha borrado nada</p>
+</ng-template>
+<h3 *ngIf="heroeBorrado; else ningunHeroe">Se ha borrado {{ heroeBorrado }}</h3>
+
+<input
+  *ngIf="heroeNombres.length > 0"
+  type="button"
+  class="btn btn-outline-danger mx-2"
+  (click)="borrarUltimoHeroe()"
+  value="Borrar último heroe"
+/>
+
 <ul class="list-group mt-2">
-    <li *ngFor="let personaje of heroeNombres" class="list-group-item">
-        {{personaje}}
-    </li>
+  <li *ngFor="let personaje of heroeNombres" class="list-group-item">
+    {{ personaje }}
+  </li>
 </ul>

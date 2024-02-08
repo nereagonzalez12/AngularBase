@@ -6,10 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './lista.component.css'
 })
 export class ListaComponent {
-  public heroeNombres: string[] = ["Antonio Recio", "Amador Rivas", "Enrique Pastor", "Maite Figueroa"]
-  public heroeBorrado: string | null = null
+  public heroeNombres: string[] = ["Antonio Recio", "Amador Rivas", "Enrique Pastor", "Maite Figueroa"];
+  public heroeBorrado: string = '';
 
   borrarUltimoHeroe(): void {
-    this.heroeBorrado = String(this.heroeNombres.pop())
+    if (this.heroeNombres.length > 0) {
+      this.heroeBorrado = String(this.heroeNombres.pop());
+    } else {
+      this.heroeBorrado = '';
+    }
   }
 }
